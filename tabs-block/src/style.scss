@@ -1,0 +1,42 @@
+.wp-block-demo-tabs-block {
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+
+.tabs-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tabs-nav {
+    display: flex;
+    border-bottom: 2px solid #ccc;
+}
+
+.tabs-nav button {
+    padding: 10px 15px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-bottom: none;
+    background: #f0f0f0;
+    transition: background-color 0.3s;
+}
+
+.tabs-nav button:hover {
+    background: #e0e0e0;
+}
+
+.tabs-nav button.active {
+    background: #fff;
+    border-color: #ccc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transform: translateY(2px); /* Para cubrir la línea inferior */
+    z-index: 1;
+}
+
+.tabs-content {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "data-fetcher-block",
+  "version": "1.0.0",
+  "description": "Un bloque de carga de datos asíncrona usando la Interactivity API.",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "wp-scripts build --experimental-modules",
+    "start": "wp-scripts start --experimental-modules"
+  },
+  "keywords": [
+    "wordpress",
+    "gutenberg",
+    "block",
+    "interactivity"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^27.0.0"
+  }
+}

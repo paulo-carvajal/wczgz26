@@ -1,0 +1,17 @@
+{
+  "name": "blocks",
+  "private": true,
+  "workspaces": [
+    "accordion-block",
+    "counter-block",
+    "data-fetcher-block",
+    "modal-block",
+    "search-filter-block",
+    "tabs-block",
+    "todo-block"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "start": "npm run start --workspaces"
+  }
+}

@@ -1,0 +1,23 @@
+.wp-block-demo-counter-block {
+    padding: 1em;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.counter-block {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.counter-block button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.counter-block span {
+    font-size: 1.5em;
+    font-weight: bold;
+}

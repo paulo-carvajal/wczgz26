@@ -1,0 +1,13 @@
+{
+    "apiVersion": 3,
+    "name": "demo/todo-block",
+    "title": "Lista de Tareas Interactivas",
+    "category": "widgets",
+    "icon": "list-view",
+    "description": "Una lista de tareas interactiva usando la Interactivity API con estado derivado.",
+    "textdomain": "demo-todo-block",
+    "editorScript": "file:./build/index.js",
+    "style": "file:./build/style-index.css",
+    "render": "file:./render.php",
+    "viewScriptModule": "file:./src/view.js"
+}

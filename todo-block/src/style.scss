@@ -1,0 +1,75 @@
+.wp-block-demo-todo-block {
+    padding: 1em;
+    border: 1px solid #ccc;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.todo-app {
+    font-family: sans-serif;
+}
+
+.todo-app form {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.todo-app input[type="text"] {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    margin-right: 5px;
+}
+
+.filters button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+}
+
+.filters button.active {
+    background: #0073aa;
+    color: white;
+    border-color: #0073aa;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-list li {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dotted #eee;
+}
+
+.task-list li.completed span {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.task-list li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task-list li span {
+    flex-grow: 1;
+}
+
+.task-list li button {
+    background: none;
+    border: none;
+    color: red;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.bulk-actions {
+    margin-top: 15px;
+    text-align: right;
+}
