@@ -1,17 +1,20 @@
 {
-  "name": "blocks",
+  "name": "cddc-blocks",
   "private": true,
   "workspaces": [
-    "accordion-block",
-    "counter-block",
-    "data-fetcher-block",
-    "modal-block",
-    "search-filter-block",
-    "tabs-block",
-    "todo-block"
+    "cddc-accordion-block",
+    "cddc-counter-block",
+    "cddc-data-fetcher-block",
+    "cddc-global-counter-block",
+    "cddc-modal-block",
+    "cddc-search-filter-block",
+    "cddc-tabs-block",
+    "cddc-todo-block"
   ],
   "scripts": {
     "build": "npm run build --workspaces",
-    "start": "npm run start --workspaces"
+    "start": "npm run start --workspaces",
+    "zip": "for dir in cddc-accordion-block cddc-counter-block cddc-data-fetcher-block cddc-global-counter-block cddc-modal-block cddc-search-filter-block cddc-tabs-block cddc-todo-block; do (cd $dir && zip -r ../$dir.zip block.json *.php build/ -x '*.DS_Store'); done",
+    "deploy": "npm run build && npm run zip"
   }
 }

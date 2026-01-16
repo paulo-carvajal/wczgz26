@@ -1,0 +1,64 @@
+// Design tokens
+$primary: #007cba;
+$primary-hover: #005a87;
+$danger: #d63638;
+$danger-hover: #b32d2e;
+$text: #1e1e1e;
+$text-muted: #666;
+$border: #ddd;
+$bg: #fff;
+$bg-alt: #f5f5f5;
+$radius: 8px;
+$radius-sm: 4px;
+
+.wp-block-cddc-accordion {
+	padding: 1.5rem;
+	border: 1px solid $border;
+	border-radius: $radius;
+	background: $bg;
+	max-width: 600px;
+}
+
+.accordion-item {
+	margin-bottom: 0.5rem;
+	border: 1px solid $border;
+	border-radius: $radius-sm;
+	overflow: hidden;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.accordion-header {
+	width: 100%;
+	text-align: left;
+	padding: 1rem;
+	background: $bg-alt;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: 600;
+	font-size: 1rem;
+	color: $text;
+	transition: background 0.2s;
+
+	&:hover {
+		background: darken($bg-alt, 5%);
+	}
+
+	.accordion-icon {
+		font-size: 1.25rem;
+		transition: transform 0.2s;
+	}
+}
+
+.accordion-content {
+	padding: 1rem;
+	border-top: 1px solid $border;
+	background: $bg;
+	color: $text;
+	line-height: 1.6;
+}

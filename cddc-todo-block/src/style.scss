@@ -1,0 +1,167 @@
+// Design tokens
+$primary: #007cba;
+$primary-hover: #005a87;
+$danger: #d63638;
+$danger-hover: #b32d2e;
+$text: #1e1e1e;
+$text-muted: #666;
+$border: #ddd;
+$bg: #fff;
+$bg-alt: #f5f5f5;
+$radius: 8px;
+$radius-sm: 4px;
+
+.wp-block-cddc-todo {
+	padding: 1.5rem;
+	border: 1px solid $border;
+	border-radius: $radius;
+	background: $bg;
+	max-width: 500px;
+}
+
+.todo-app {
+	font-family: inherit;
+
+	form {
+		display: flex;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+
+		input[type="text"] {
+			flex-grow: 1;
+			padding: 0.75rem;
+			border: 1px solid $border;
+			border-radius: $radius-sm;
+			font-size: 0.875rem;
+
+			&:focus {
+				outline: none;
+				border-color: $primary;
+				box-shadow: 0 0 0 2px rgba($primary, 0.2);
+			}
+		}
+
+		button[type="submit"] {
+			padding: 0.75rem 1.25rem;
+			background: $primary;
+			color: #fff;
+			border: none;
+			border-radius: $radius-sm;
+			font-size: 0.875rem;
+			font-weight: 600;
+			cursor: pointer;
+			transition: background 0.2s;
+
+			&:hover {
+				background: $primary-hover;
+			}
+		}
+	}
+}
+
+.filters {
+	display: flex;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+
+	button {
+		padding: 0.5rem 1rem;
+		background: $bg-alt;
+		border: 1px solid $border;
+		border-radius: $radius-sm;
+		font-size: 0.875rem;
+		color: $text-muted;
+		cursor: pointer;
+		transition: all 0.2s;
+
+		&:hover {
+			background: darken($bg-alt, 5%);
+			color: $text;
+		}
+
+		&.active {
+			background: $primary;
+			border-color: $primary;
+			color: #fff;
+		}
+	}
+}
+
+.task-list {
+	list-style: none;
+	padding: 0;
+	margin: 0 0 1rem;
+
+	li {
+		display: flex;
+		align-items: center;
+		padding: 0.75rem;
+		border: 1px solid $border;
+		border-radius: $radius-sm;
+		margin-bottom: 0.5rem;
+		background: $bg;
+		transition: background 0.2s;
+
+		&:hover {
+			background: $bg-alt;
+		}
+
+		&.completed span {
+			text-decoration: line-through;
+			color: $text-muted;
+		}
+
+		input[type="checkbox"] {
+			width: 18px;
+			height: 18px;
+			margin-right: 0.75rem;
+			cursor: pointer;
+		}
+
+		span {
+			flex-grow: 1;
+			color: $text;
+		}
+
+		button {
+			width: 28px;
+			height: 28px;
+			padding: 0;
+			background: transparent;
+			border: none;
+			color: $text-muted;
+			font-size: 1.25rem;
+			cursor: pointer;
+			border-radius: $radius-sm;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.2s;
+
+			&:hover {
+				background: rgba($danger, 0.1);
+				color: $danger;
+			}
+		}
+	}
+}
+
+.bulk-actions {
+	text-align: right;
+
+	button {
+		padding: 0.5rem 1rem;
+		background: transparent;
+		border: 1px solid $danger;
+		border-radius: $radius-sm;
+		color: $danger;
+		font-size: 0.875rem;
+		cursor: pointer;
+		transition: all 0.2s;
+
+		&:hover {
+			background: $danger;
+			color: #fff;
+		}
+	}
+}

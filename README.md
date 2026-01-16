@@ -1,81 +1,109 @@
-# Demo Blocks - WordPress Interactivity API
+# WordPress Interactivity API - Demo Blocks
 
-Colección de 7 bloques de Gutenberg que demuestran el uso de la **WordPress Interactivity API** (WP 6.5+).
+A collection of **8 Gutenberg blocks** demonstrating the **WordPress Interactivity API** (WP 6.5+).
 
-## Bloques incluidos
+These blocks serve as practical examples for developers learning to build reactive, interactive WordPress blocks without relying on React on the frontend.
 
-| Bloque | Descripción | Características |
-|--------|-------------|-----------------|
-| **Accordion** | Acordeón expandible | Contexto local, múltiples items |
-| **Counter** | Contador numérico | Estado global, acciones increment/decrement/reset |
-| **Data Fetcher** | Cargador de datos | Fetch asíncrono, callbacks, estados de carga |
-| **Modal** | Ventana modal | Estado global, apertura/cierre |
-| **Search Filter** | Buscador con filtros | Getters derivados, filtrado en tiempo real |
-| **Tabs** | Sistema de pestañas | Contexto por tab, estado compartido |
-| **Todo List** | Lista de tareas | CRUD, estados derivados, each loops |
+---
 
-## Requisitos
+## Learn More: WordPress Editor and Blocks
 
-- WordPress 6.5+ (Interactivity API)
+**Master WordPress Block Development.**
+
+The only guide that guarantees you'll stop losing billable hours to fragmented documentation and start architecting enterprise-grade solutions.
+
+[**Unlock your WordPress expert status — BUY NOW!**](https://wp-block-editor.com/)
+
+---
+
+## Blocks Included
+
+| Block | Description | Interactivity Concepts |
+|-------|-------------|------------------------|
+| **Accordion** | Expandable accordion | Local context, toggle actions |
+| **Counter** | Numeric counter | Instance-based state, shared store |
+| **Global Counter** | Sum of all counters | Shared store, `data-wp-each` |
+| **Data Fetcher** | Async data loader | Fetch, callbacks, loading states |
+| **Modal** | Modal dialog (3 types) | Global state, custom events, info/confirm/prompt |
+| **Search Filter** | Real-time search | Derived getters, filtering |
+| **Tabs** | Tab system | Context per tab, conditional classes |
+| **Todo List** | Task list with CRUD | `data-wp-each`, `withSyncEvent`, derived state |
+
+## Requirements
+
+- WordPress 6.5+
+- PHP 7.4+
 - Node.js 18+
-- npm 9+
 
-## Instalación
+## Installation
 
 ```bash
-cd wp-content/plugins
+git clone https://github.com/paulo-carvajal/wczgz26.git
+cd wczgz26/wp-content/plugins
 npm install
 npm run build
 ```
 
-## Desarrollo
+Activate desired blocks in WordPress Admin → Plugins.
+
+## Development
 
 ```bash
-npm run start  # Watch mode para todos los plugins
+npm run start   # Watch mode (all blocks)
+npm run build   # Production build
 ```
 
-## Estructura
+## Project Structure
 
 ```
 plugins/
-├── package.json          # Workspace root
+├── package.json              # npm workspaces root
 ├── accordion-block/
-│   ├── block.json        # Metadata del bloque
-│   ├── render.php        # Template PHP (frontend)
-│   ├── src/
-│   │   ├── index.js      # Editor script
-│   │   ├── edit.js       # Componente del editor
-│   │   ├── view.js       # Interactivity API (frontend)
-│   │   └── style.scss    # Estilos
-│   └── build/            # Archivos compilados
 ├── counter-block/
 ├── data-fetcher-block/
+├── global-counter-block/
 ├── modal-block/
 ├── search-filter-block/
 ├── tabs-block/
 └── todo-block/
 ```
 
-## Conceptos de Interactivity API demostrados
+Each block follows the standard structure:
 
-### Estado Global vs Contexto Local
+```
+block-name/
+├── block.json        # Block metadata
+├── plugin.php        # Plugin registration
+├── render.php        # Frontend template (PHP + directives)
+├── README.md         # Block documentation
+├── src/
+│   ├── index.js      # Editor registration
+│   ├── edit.js       # Editor component
+│   ├── view.js       # Interactivity API store
+│   └── style.scss    # Styles
+└── build/            # Compiled assets
+```
 
-- **Estado global** (`wp_interactivity_state`): Compartido entre todos los elementos
-- **Contexto local** (`wp_interactivity_data_wp_context`): Específico por elemento
+## Interactivity API Concepts
 
-### Directivas utilizadas
+### Global State vs Local Context
 
-| Directiva | Uso |
-|-----------|-----|
-| `data-wp-interactive` | Define el namespace del store |
-| `data-wp-on--click` | Event handler para clicks |
-| `data-wp-bind--attr` | Binding dinámico de atributos |
-| `data-wp-text` | Contenido de texto reactivo |
-| `data-wp-class--name` | Clases CSS condicionales |
-| `data-wp-each` | Iteración sobre arrays |
-| `data-wp-context` | Contexto local por elemento |
+- **Global state** (`wp_interactivity_state`): Shared across all block instances
+- **Local context** (`data-wp-context`): Scoped to a specific element
 
-### Funciones del store
+### Directives Reference
+
+| Directive | Purpose |
+|-----------|---------|
+| `data-wp-interactive` | Define store namespace |
+| `data-wp-context` | Local context per element |
+| `data-wp-on--click` | Click event handler |
+| `data-wp-bind--attr` | Dynamic attribute binding |
+| `data-wp-text` | Reactive text content |
+| `data-wp-class--name` | Conditional CSS classes |
+| `data-wp-each` | Array iteration |
+
+### Store Pattern
 
 ```javascript
 import { store, getContext } from '@wordpress/interactivity';
@@ -92,11 +120,23 @@ const { state } = store('namespace', {
         }
     },
     callbacks: {
-        init() { /* Se ejecuta al montar */ }
+        init() { /* Runs on mount */ }
     }
 });
 ```
 
-## Licencia
+## Resources
 
-ISC
+- [Interactivity API Documentation](https://developer.wordpress.org/block-editor/reference-guides/interactivity-api/)
+- [Block Editor Handbook](https://developer.wordpress.org/block-editor/)
+- [@wordpress/scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/)
+
+---
+
+## About the Author
+
+These demo blocks were created by [Paulo Carvajal](https://paulocarvajal.com/), author of [WP Editor and Blocks](https://wp-block-editor.com/), as companion examples for the talk **Construye experiencias dinámicas con la Interactivity API de WordPress** (Build dynamic experiences with the WordPress Interactivity API) at [WordCamp Zaragoza 2026](https://zaragoza.wordcamp.org/2026/).
+
+## License
+
+GPL-2.0-or-later

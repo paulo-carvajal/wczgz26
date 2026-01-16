@@ -21,3 +21,6 @@ npm-debug.log*
 
 # Optional: lock files (descomentar si prefieres no versionarlos)
 # package-lock.json
+
+# Distribution files
+*.zip

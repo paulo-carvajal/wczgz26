@@ -1,0 +1,13 @@
+{
+    "apiVersion": 3,
+    "name": "cddc/modal",
+    "title": "Modal Interactivo",
+    "category": "codedication",
+    "icon": "welcome-view-site",
+    "description": "Un modal interactivo usando la Interactivity API y estado global.",
+    "textdomain": "cddc-modal-block",
+    "editorScript": "file:./build/index.js",
+    "style": "file:./build/style-index.css",
+    "render": "file:./render.php",
+    "viewScriptModule": "file:./src/view.js"
+}

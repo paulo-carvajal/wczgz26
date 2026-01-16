@@ -1,0 +1,135 @@
+// Design tokens
+$primary: #007cba;
+$primary-hover: #005a87;
+$danger: #d63638;
+$danger-hover: #b32d2e;
+$text: #1e1e1e;
+$text-muted: #666;
+$border: #ddd;
+$bg: #fff;
+$bg-alt: #f5f5f5;
+$radius: 8px;
+$radius-sm: 4px;
+
+.wp-block-cddc-global-counter {
+	padding: 1.5rem;
+	border: 1px solid $border;
+	border-radius: $radius;
+	background: $bg;
+	max-width: 400px;
+
+	.global-counter-title {
+		margin: 0 0 1rem;
+		font-size: 1.25rem;
+		font-weight: 600;
+		color: $text;
+	}
+
+	.global-total {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 1rem;
+		background: $primary;
+		color: #fff;
+		border-radius: $radius-sm;
+		margin-bottom: 1rem;
+
+		.total-label {
+			font-weight: 500;
+		}
+
+		.total-value {
+			font-size: 1.5rem;
+			font-weight: 700;
+		}
+	}
+
+	.counter-list {
+		margin-bottom: 1rem;
+
+		h4 {
+			margin: 0 0 0.5rem;
+			font-size: 0.875rem;
+			color: $text-muted;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			font-weight: 500;
+		}
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.counter-item {
+			display: flex;
+			justify-content: space-between;
+			padding: 0.75rem;
+			background: $bg-alt;
+			border: 1px solid $border;
+			border-radius: $radius-sm;
+			margin-bottom: 0.25rem;
+
+			.counter-item-label {
+				color: $text-muted;
+			}
+
+			.counter-item-value {
+				font-weight: 600;
+				color: $text;
+			}
+		}
+
+		.no-counters-message {
+			color: $text-muted;
+			font-style: italic;
+			margin: 0;
+			padding: 0.75rem;
+			background: $bg-alt;
+			border-radius: $radius-sm;
+			text-align: center;
+		}
+	}
+
+	.reset-all-button {
+		width: 100%;
+		padding: 0.75rem 1rem;
+		background: $danger;
+		color: #fff;
+		border: none;
+		border-radius: $radius-sm;
+		font-size: 0.875rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: background 0.2s;
+
+		&:hover {
+			background: $danger-hover;
+		}
+
+		&:active {
+			transform: scale(0.98);
+		}
+	}
+}
+
+// Editor preview styles
+.global-counter-block {
+	.global-counter-description {
+		color: $text-muted;
+		font-size: 0.875rem;
+	}
+
+	.global-counter-preview {
+		padding: 1rem;
+		background: $bg-alt;
+		border-radius: $radius-sm;
+	}
+
+	.counter-list-preview {
+		color: $text-muted;
+		font-style: italic;
+	}
+}

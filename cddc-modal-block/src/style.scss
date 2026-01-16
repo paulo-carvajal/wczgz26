@@ -1,0 +1,306 @@
+// Design tokens
+$primary: #007cba;
+$primary-hover: #005a87;
+$danger: #d63638;
+$danger-hover: #b32d2e;
+$success: #00a32a;
+$success-hover: #008a20;
+$warning: #dba617;
+$warning-hover: #b8860b;
+$text: #1e1e1e;
+$text-muted: #666;
+$border: #ddd;
+$bg: #fff;
+$bg-alt: #f5f5f5;
+$radius: 8px;
+$radius-sm: 4px;
+
+.wp-block-cddc-modal {
+	padding: 1.5rem;
+	border: 1px solid $border;
+	border-radius: $radius;
+	background: $bg;
+
+	// Contenedor de botones trigger
+	.modal-triggers {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
+
+	// Botones de apertura del modal
+	.modal-triggers button {
+		padding: 0.75rem 1.25rem;
+		border: none;
+		border-radius: $radius-sm;
+		font-size: 0.875rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s;
+
+		&:active {
+			transform: scale(0.98);
+		}
+
+		// Info - azul
+		&.trigger-info {
+			background: $primary;
+			color: #fff;
+
+			&:hover {
+				background: $primary-hover;
+			}
+		}
+
+		// Confirm - naranja/warning
+		&.trigger-confirm {
+			background: $warning;
+			color: #fff;
+
+			&:hover {
+				background: $warning-hover;
+			}
+		}
+
+		// Prompt - verde
+		&.trigger-prompt {
+			background: $success;
+			color: #fff;
+
+			&:hover {
+				background: $success-hover;
+			}
+		}
+	}
+
+	// Área de resultado
+	.modal-result {
+		display: none;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.75rem 1rem;
+		background: rgba($success, 0.1);
+		border: 1px solid $success;
+		border-radius: $radius-sm;
+		margin-top: 1rem;
+
+		&.visible {
+			display: flex;
+		}
+
+		.result-label {
+			color: $text-muted;
+			font-size: 0.875rem;
+		}
+
+		.result-value {
+			font-weight: 600;
+			color: $text;
+		}
+
+		.result-clear {
+			margin-left: auto;
+			padding: 0;
+			width: 28px;
+			height: 28px;
+			background: transparent;
+			border: none;
+			font-size: 1.25rem;
+			color: $text-muted;
+			cursor: pointer;
+			border-radius: $radius-sm;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.2s;
+
+			&:hover {
+				background: rgba($danger, 0.1);
+				color: $danger;
+			}
+		}
+	}
+}
+
+// Modal overlay
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	display: none;
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
+	opacity: 0;
+	transition: opacity 0.2s ease;
+
+	&.visible {
+		display: flex;
+		opacity: 1;
+	}
+}
+
+// Modal content box
+.modal-content {
+	background: $bg;
+	padding: 0;
+	border-radius: $radius;
+	max-width: 500px;
+	width: 90%;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+	transform: scale(0.95);
+	transition: transform 0.2s ease;
+
+	.visible & {
+		transform: scale(1);
+	}
+}
+
+// Modal header
+.modal-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 1.5rem;
+	border-bottom: 1px solid $border;
+	background: $bg-alt;
+	border-radius: $radius $radius 0 0;
+
+	h2 {
+		margin: 0;
+		font-size: 1.125rem;
+		font-weight: 600;
+		color: $text;
+	}
+}
+
+// Close button (header X)
+.modal-close {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	background: transparent;
+	border: none;
+	font-size: 1.5rem;
+	color: $text-muted;
+	cursor: pointer;
+	border-radius: $radius-sm;
+	transition: all 0.2s;
+
+	&:hover {
+		background: rgba($danger, 0.1);
+		color: $danger;
+	}
+}
+
+// Modal body
+.modal-body {
+	padding: 1.5rem;
+
+	p {
+		margin: 0;
+		color: $text;
+		line-height: 1.6;
+	}
+
+	// Prompt input container
+	.modal-prompt-input {
+		margin-top: 1rem;
+
+		&[hidden] {
+			display: none;
+		}
+
+		input {
+			box-sizing: border-box;
+			width: 100%;
+			padding: 0.75rem;
+			border: 1px solid $border;
+			border-radius: $radius-sm;
+			font-size: 0.875rem;
+			transition: all 0.2s;
+
+			&:focus {
+				outline: none;
+				border-color: $primary;
+				box-shadow: 0 0 0 2px rgba($primary, 0.2);
+			}
+		}
+	}
+}
+
+// Modal footer
+.modal-footer {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.5rem;
+	padding: 1rem 1.5rem;
+	border-top: 1px solid $border;
+	background: $bg-alt;
+	border-radius: 0 0 $radius $radius;
+
+	button {
+		padding: 0.75rem 1.25rem;
+		border-radius: $radius-sm;
+		font-size: 0.875rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: all 0.2s;
+
+		&[hidden] {
+			display: none;
+		}
+	}
+
+	// Botón cerrar (info)
+	.btn-close {
+		background: $bg;
+		border: 1px solid $border;
+		color: $text;
+
+		&:hover {
+			background: $bg-alt;
+			border-color: darken($border, 10%);
+		}
+	}
+
+	// Botón cancelar
+	.btn-cancel {
+		background: $bg;
+		border: 1px solid $border;
+		color: $text;
+
+		&:hover {
+			background: $bg-alt;
+			border-color: darken($border, 10%);
+		}
+	}
+
+	// Botón confirmar (primario)
+	.btn-confirm {
+		background: $primary;
+		border: 1px solid $primary;
+		color: #fff;
+
+		&:hover {
+			background: $primary-hover;
+			border-color: $primary-hover;
+		}
+	}
+}
+
+// Editor preview styles
+.editor-styles-wrapper .wp-block-cddc-modal {
+	.modal-overlay {
+		display: none !important;
+	}
+
+	.modal-result {
+		display: none !important;
+	}
+}

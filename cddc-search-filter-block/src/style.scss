@@ -1,0 +1,111 @@
+// Design tokens
+$primary: #007cba;
+$primary-hover: #005a87;
+$danger: #d63638;
+$danger-hover: #b32d2e;
+$text: #1e1e1e;
+$text-muted: #666;
+$border: #ddd;
+$bg: #fff;
+$bg-alt: #f5f5f5;
+$radius: 8px;
+$radius-sm: 4px;
+
+.wp-block-cddc-search-filter {
+	padding: 1.5rem;
+	border: 1px solid $border;
+	border-radius: $radius;
+	background: $bg;
+	max-width: 800px;
+}
+
+.search-controls {
+	display: flex;
+	gap: 0.75rem;
+	margin-bottom: 1.5rem;
+	flex-wrap: wrap;
+
+	input,
+	select {
+		padding: 0.75rem;
+		border: 1px solid $border;
+		border-radius: $radius-sm;
+		font-size: 0.875rem;
+		background: $bg;
+
+		&:focus {
+			outline: none;
+			border-color: $primary;
+			box-shadow: 0 0 0 2px rgba($primary, 0.2);
+		}
+	}
+
+	input[type="search"] {
+		flex-grow: 1;
+		min-width: 200px;
+	}
+
+	select {
+		min-width: 150px;
+		cursor: pointer;
+	}
+}
+
+.results-count {
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: $text-muted;
+	margin-bottom: 1rem;
+
+	strong {
+		color: $primary;
+	}
+}
+
+.product-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 1rem;
+}
+
+.product-card {
+	border: 1px solid $border;
+	padding: 1.25rem;
+	border-radius: $radius-sm;
+	background: $bg;
+	transition: box-shadow 0.2s;
+
+	&:hover {
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
+
+	h3 {
+		margin: 0 0 0.5rem;
+		font-size: 1rem;
+		font-weight: 600;
+		color: $text;
+	}
+
+	.category {
+		font-size: 0.75rem;
+		color: $text-muted;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin-bottom: 0.5rem;
+	}
+
+	.price {
+		font-weight: 700;
+		color: $primary;
+		font-size: 1.125rem;
+	}
+}
+
+.no-results {
+	text-align: center;
+	padding: 2rem;
+	border: 1px dashed $border;
+	border-radius: $radius-sm;
+	color: $text-muted;
+	background: $bg-alt;
+}

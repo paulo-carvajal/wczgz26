@@ -1,0 +1,113 @@
+// Design tokens
+$primary: #007cba;
+$primary-hover: #005a87;
+$danger: #d63638;
+$danger-hover: #b32d2e;
+$text: #1e1e1e;
+$text-muted: #666;
+$border: #ddd;
+$bg: #fff;
+$bg-alt: #f5f5f5;
+$radius: 8px;
+$radius-sm: 4px;
+
+.wp-block-cddc-data-fetcher {
+	padding: 1.5rem;
+	border: 1px solid $border;
+	border-radius: $radius;
+	background: $bg;
+	max-width: 800px;
+}
+
+.posts-list {
+	display: grid;
+	gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.post-card {
+	border: 1px solid $border;
+	padding: 1.25rem;
+	border-radius: $radius-sm;
+	background: $bg;
+	transition: box-shadow 0.2s;
+
+	&:hover {
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
+
+	h3 {
+		margin: 0 0 0.5rem;
+		font-size: 1rem;
+		font-weight: 600;
+		color: $text;
+	}
+
+	p {
+		margin: 0;
+		color: $text-muted;
+		font-size: 0.875rem;
+		line-height: 1.5;
+	}
+}
+
+.loading-indicator,
+.error-message {
+	text-align: center;
+	padding: 1.5rem;
+	border-radius: $radius-sm;
+}
+
+.loading-indicator {
+	color: $primary;
+	background: rgba($primary, 0.1);
+	font-weight: 500;
+
+	.spinner {
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		border: 2px solid $primary;
+		border-top-color: transparent;
+		border-radius: 50%;
+		animation: spin 0.8s linear infinite;
+		margin-right: 0.5rem;
+		vertical-align: middle;
+	}
+}
+
+.error-message {
+	color: $danger;
+	background: rgba($danger, 0.1);
+	border: 1px solid rgba($danger, 0.3);
+	font-weight: 500;
+}
+
+.load-more {
+	display: block;
+	width: 100%;
+	padding: 0.75rem 1rem;
+	background: $primary;
+	color: #fff;
+	border: none;
+	border-radius: $radius-sm;
+	font-size: 0.875rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.2s;
+
+	&:hover {
+		background: $primary-hover;
+	}
+
+	&:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
