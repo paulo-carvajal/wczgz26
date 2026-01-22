@@ -11,16 +11,8 @@ $counter_id = wp_unique_id( 'counter-' );
 // Contexto local para esta instancia
 $context = array(
 	'id'           => $counter_id,
-	'initialValue' => 0,
+	'value' => 0,
 	'label'        => sprintf( __( 'Counter %s', 'cddc-counter-block' ), substr( $counter_id, -1 ) ),
-);
-
-// Inicializa el estado global (solo se ejecuta una vez)
-wp_interactivity_state(
-	'cddc/counter',
-	array(
-		'counters' => array(),
-	)
 );
 ?>
 <div
@@ -32,7 +24,7 @@ wp_interactivity_state(
 	<span class="counter-label" data-wp-text="context.label"></span>
 	<div class="counter-controls">
 		<button data-wp-on--click="actions.decrement">−</button>
-		<span data-wp-text="state.value">0</span>
+		<span data-wp-text="context.value">0</span>
 		<button data-wp-on--click="actions.increment">+</button>
 		<button data-wp-on--click="actions.reset">Reset</button>
 	</div>

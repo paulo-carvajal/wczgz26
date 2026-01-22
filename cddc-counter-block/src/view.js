@@ -8,9 +8,6 @@ import { store, getContext } from '@wordpress/interactivity';
 
 const { state } = store( 'cddc/counter', {
 	state: {
-		// Objeto que almacena todos los contadores: { id: { value, label } }
-		counters: {},
-
 		// Getter: valor del contador actual (usando contexto)
 		get value() {
 			const ctx = getContext();
@@ -20,6 +17,8 @@ const { state } = store( 'cddc/counter', {
 	actions: {
 		increment() {
 			const ctx = getContext();
+			ctx.value += 1;
+
 			if ( state.counters[ ctx.id ] ) {
 				state.counters[ ctx.id ].value += 1;
 			}
@@ -27,6 +26,8 @@ const { state } = store( 'cddc/counter', {
 
 		decrement() {
 			const ctx = getContext();
+			ctx.value -= 1
+
 			if ( state.counters[ ctx.id ] ) {
 				state.counters[ ctx.id ].value -= 1;
 			}
@@ -34,6 +35,8 @@ const { state } = store( 'cddc/counter', {
 
 		reset() {
 			const ctx = getContext();
+			ctx.value = 0;
+
 			if ( state.counters[ ctx.id ] ) {
 				state.counters[ ctx.id ].value = 0;
 			}
@@ -45,7 +48,7 @@ const { state } = store( 'cddc/counter', {
 			const ctx = getContext();
 			if ( ctx.id && ! state.counters[ ctx.id ] ) {
 				state.counters[ ctx.id ] = {
-					value: ctx.initialValue ?? 0,
+					value: ctx.value ?? 0,
 					label: ctx.label ?? ctx.id,
 				};
 			}
