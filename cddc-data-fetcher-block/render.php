@@ -15,7 +15,9 @@ wp_interactivity_state( 'cddc/data-fetcher', array(
 ) );
 ?>
 
-<div data-wp-interactive="cddc/data-fetcher" data-wp-init="callbacks.loadInitialData" class="wp-block-cddc-data-fetcher">
+<div data-wp-interactive="cddc/data-fetcher"
+    data-wp-init="callbacks.loadInitialData"
+    class="wp-block-cddc-data-fetcher">
     <!-- Lista de posts -->
     <div class="posts-list">
         <template data-wp-each="state.posts">

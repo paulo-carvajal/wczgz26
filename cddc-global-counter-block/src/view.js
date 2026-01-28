@@ -28,12 +28,4 @@ const { state } = store( 'cddc/counter', {
 			} ) );
 		},
 	},
-	actions: {
-		// Resetea todos los contadores a cero
-		resetAll() {
-			Object.keys( state.counters ).forEach( ( id ) => {
-				state.counters[ id ].value = 0;
-			} );
-		},
-	},
 } );

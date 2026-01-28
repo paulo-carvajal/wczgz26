@@ -2,7 +2,6 @@ import { store, getContext, withSyncEvent } from '@wordpress/interactivity';
 
 const { state } = store( 'cddc/todo', {
     state: {
-        tasks: [],
         newTaskTitle: '',
         filter: 'all',
 
